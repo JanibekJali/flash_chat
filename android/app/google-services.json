@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "905193157158",
+    "project_id": "flashchatdream",
+    "storage_bucket": "flashchatdream.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905193157158:android:7f03636da9675c129b2ce7",
+        "android_client_info": {
+          "package_name": "com.flash_chat.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "905193157158-bmoms0gc1p7ftpglo20vi68jsgq6m58b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV3XhQGF2uBWY_dPz9x0Q5TiTlp_2KKiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "905193157158-bmoms0gc1p7ftpglo20vi68jsgq6m58b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
