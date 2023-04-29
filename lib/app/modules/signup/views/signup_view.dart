@@ -1,18 +1,17 @@
-import 'package:flash_chat/app/constants/colors/app_colors.dart';
 import 'package:flash_chat/app/constants/text_styles/app_text_styles.dart';
 import 'package:flash_chat/app/modules/signin/views/signin_view.dart';
 import 'package:flash_chat/app/modules/signup/widgets/input_decoration.dart';
 import 'package:flash_chat/app/widgets/app_bar_widget.dart';
 import 'package:flash_chat/app/widgets/register_widget.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../controllers/signup_controller.dart';
 
 class SignupView extends GetView<SignupController> {
   SignupView({Key? key}) : super(key: key);
-  String textField = '';
+
+  final signupController = Get.put<SignupController>(SignupController());
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -33,7 +32,7 @@ class SignupView extends GetView<SignupController> {
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextFormField(
                   onChanged: (value) {
-                    textField = value;
+                    signupController.name.value = value;
                   },
                   decoration: inputDecoration.copyWith(
                     label: Text("Name"),
@@ -47,7 +46,7 @@ class SignupView extends GetView<SignupController> {
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextFormField(
                     onChanged: (value) {
-                      textField = value;
+                      signupController.email.value = value;
                     },
                     decoration: inputDecoration.copyWith(
                       label: Text("Email"),
@@ -60,7 +59,7 @@ class SignupView extends GetView<SignupController> {
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextFormField(
                     onChanged: (value) {
-                      textField = value;
+                      signupController.password.value = value;
                     },
                     decoration: inputDecoration.copyWith(
                       label: Text("Password"),
@@ -73,7 +72,7 @@ class SignupView extends GetView<SignupController> {
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextFormField(
                     onChanged: (value) {
-                      textField = value;
+                      signupController.password.value = value;
                     },
                     decoration: inputDecoration.copyWith(
                       label: Text("Confirm password"),
@@ -84,7 +83,8 @@ class SignupView extends GetView<SignupController> {
               ),
               RegisterWidget(
                 onpress: () {
-                  
+                  signupController.signUp();
+                  FocusManager.instance.primaryFocus?.unfocus();
                 },
                 text: "Sign Up",
               ),

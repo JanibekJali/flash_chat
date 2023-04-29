@@ -11,9 +11,9 @@ import '../controllers/signin_controller.dart';
 
 class SignInView extends StatelessWidget {
   SignInView({Key? key}) : super(key: key);
-  String email = '';
-  String password = '';
-  final _controller = TextEditingController();
+  SigninController _signinController = Get.put<SigninController>(
+    SigninController(),
+  );
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,7 +35,10 @@ class SignInView extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: TextFormField(
-                      controller: _controller,
+                      onChanged: (value) {
+                        _signinController.email.value = value;
+                      },
+                      // controller: _signinController.controllerEmail.value,
                       style: TextStyle(decorationColor: AppColors.red),
                       decoration: InputDecoration(
                         filled: true,
@@ -64,7 +67,10 @@ class SignInView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: TextFormField(
-                  controller: _controller,
+                  onChanged: (value) {
+                    _signinController.password.value = value;
+                  },
+                  // controller: _signinController.controllerPassword.value,
                   style: TextStyle(decorationColor: AppColors.red),
                   decoration: InputDecoration(
                     filled: true,
@@ -92,9 +98,9 @@ class SignInView extends StatelessWidget {
               ),
               RegisterWidget(
                 onpress: () {
-                  if (email.isNotEmpty && password.isNotEmpty) {
-                    _controller.clear();
-                  }
+                  // if(_signinController.email.value.isNotEmpty && _signinController.password.value.isNotEmpty){
+                  // }
+                  _signinController.signIn();
                 },
                 text: "Sign In",
               ),
