@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flash_chat/app/modules/chat/views/chat_view.dart';
+import 'package:flash_chat/app/modules/home/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +21,7 @@ class SigninController extends GetxController {
         email: email.value,
         password: password.value,
       );
-      Get.to(ChatView());
+      Get.to(HomeView());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         log('No user found for that email.');

@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/app/modules/chat/views/chat_view.dart';
+import 'package:flash_chat/app/modules/home/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,7 +32,7 @@ class SignupController extends GetxController {
           )
           .then((value) => {
                 addUser(),
-                Get.to(ChatView()),
+                Get.to(HomeView()),
               });
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
