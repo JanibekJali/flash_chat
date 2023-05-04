@@ -8,7 +8,7 @@ class ChatService {
     final sender = FirebaseAuth.instance.currentUser;
     if (sender != null) {
       final _userModel = UserModel(
-        userName: sender.displayName!,
+        // userName: sender.email!,
         sender: sender.email!,
         sms: sms,
         dateTime: DateTime.now(),

@@ -22,8 +22,8 @@ class StreamMessage extends StatelessWidget {
             if (snapshot.hasData) {
               final user = (snapshot.data.docs.reversed as Iterable).map(
                 (e) => UserModel.fromJson(e.data())
-                  ..isMe = e.data()['userName'] ==
-                      FirebaseAuth.instance.currentUser?.displayName,
+                  ..isMe = e.data()['sender'] ==
+                      FirebaseAuth.instance.currentUser?.email,
               );
 
               return ListView(
