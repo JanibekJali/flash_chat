@@ -1,4 +1,5 @@
 import 'package:flash_chat/app/modules/chat/views/chat_view.dart';
+import 'package:flash_chat/app/modules/signup/controllers/signup_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -7,6 +8,8 @@ import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   HomeView({Key? key}) : super(key: key);
+  SignupController _signupController =
+      Get.put<SignupController>(SignupController());
   HomeController _homeController = Get.put<HomeController>(HomeController());
   @override
   Widget build(BuildContext context) {
@@ -52,7 +55,7 @@ class HomeView extends GetView<HomeController> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Baburzhan',
+                              _signupController.name.value,
                               style: TextStyle(
                                 fontSize: 30,
                               ),

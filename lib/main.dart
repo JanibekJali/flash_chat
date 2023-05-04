@@ -1,3 +1,4 @@
+import 'package:flash_chat/app/components/messages/send_message.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
